@@ -138,6 +138,9 @@ def main():
         print(f"line {lid} ({how}): " + " ".join(f"{w[0]}@{w[1]:.2f}" for w in words))
     json.dump(lines, open(os.path.join(vdir, "lines.json"), "w"), indent=1)
     print(f"wrote {os.path.relpath(os.path.join(vdir, 'lines.json'))} ({mode}{', scratch voice' if meta.get('voice') == 'scratch' else ''})")
+    if mode == "estimate":
+        print("word times are estimates: fine for a first look; for type that lands on the beat run again with --align force "
+              "(uv fetches torch once, about 2 GB) or install whisper.cpp and its model (docs/setup.md)")
 
 
 if __name__ == "__main__":

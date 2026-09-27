@@ -52,7 +52,7 @@ Bring 3 or 4 screenshots or short screen recordings of your product. They carry 
 ```bash
 npm run brand -- https://your-site.com                  # optional: your brand instead of Acme's
 .venv/bin/python skills/launch-voice/scripts/scratch_voice.py film/film.json
-.venv/bin/python skills/launch-voice/scripts/prep_lines.py film/film.json
+.venv/bin/python skills/launch-voice/scripts/prep_lines.py film/film.json --align force   # precise word times; uv fetches torch once
 .venv/bin/python skills/launch-score/scripts/scratch_bed.py film/score/bed.wav --bpm 120 --intro-bars 3
 film/render.sh type-only
 ```

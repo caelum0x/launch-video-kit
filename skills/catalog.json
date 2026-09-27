@@ -1,0 +1,54 @@
+{
+  "skills": [
+    {
+      "name": "launch-film",
+      "description": "Make or change a product launch film in your own brand. A film is a hook (the story before the cut) on a shared body (the name punching in, hero words cut on the voice, your product at close range, the logo lockup in near silence), built in HyperFrames from brand/brand.json and film/film.json. Holds the core, the template workflow (build, render and mix 1 hook or all of them), the generation recipes, the checks and the lessons. Use for \"launch video\", \"launch film\", \"product video\", \"promo\", \"reveal\", \"announcement video\", \"new hook\", \"change the body\", \"render all launch videos\".",
+      "path": "skills/launch-film/SKILL.md"
+    },
+    {
+      "name": "launch-brand",
+      "description": "Build the brand kit a launch film uses from a website. Runs tools/brand-from-url.mjs on the reader's site to extract branding (colours, fonts, logo, name, tagline, copy, product images), then reviews the preview sheet with the reader and fixes any wrong role by hand. Use for \"brand from website\", \"brand kit\", \"extract branding\", \"get our colours and fonts\", \"use our logo\", or before the first launch film for a new brand.",
+      "path": "skills/launch-brand/SKILL.md"
+    },
+    {
+      "name": "launch-story",
+      "description": "Tool manual under launch-film (the brief, the story spine, the script, the beat sheet and reference studies). Turn a launch brief into a launch film's story in your own brand, with the one message, the narrative spine, the voice-over script at the right length, a beat sheet on the music's bar grid and a STORYBOARD.md where every shot names its continuity in and out, its signature move and its sound. Includes the reference study and the logo-swap differentiation test. Use first, before voice, score or motion, for \"launch video script\", \"storyboard\", \"brief\", \"what should the launch film say\", \"study this reference video\".",
+      "path": "skills/launch-story/SKILL.md"
+    },
+    {
+      "name": "launch-voice",
+      "description": "Tool manual under launch-film (voice casting, one take per line, fitting lines, stitching, forced alignment, the vintage chain, the local clone and the free scratch voice). Produce the voice-over of a launch film. Casting across every Higgsfield preset voice, one file per script line fitted into its frame, pace and length rules, word-level timestamps by forced alignment so every key word lands on its visual, and fixes for lines that run long. Use after launch-story has an approved script and before picture timing is locked, for \"voice-over\", \"narrator\", \"cast a voice\", \"record the lines\", \"align the words\", \"scratch voice\".",
+      "path": "skills/launch-voice/SKILL.md"
+    },
+    {
+      "name": "launch-score",
+      "description": "Tool manual under launch-film (music fitted to the edit with Higgsfield Sonilo, ACE-Step locally, or the free scratch bed). Score a launch film with music whose sections are the film's acts. Each take is measured for tempo and section energy, stretched onto the film's BPM and offset so its drop lands on the cut. Use after the storyboard's beat sheet exists, for \"music\", \"score\", \"soundtrack\", \"background track\", \"the drop\", \"beat grid\".",
+      "path": "skills/launch-score/SKILL.md"
+    },
+    {
+      "name": "launch-sound",
+      "description": "Tool manual under launch-film (the sound palette, the event map, the cue sheet and generated sound kits). Design the sound effects of a launch film. Builds an event map from the storyboard, the voice-over word timings and the rendered timeline, voices every event from 1 consistent palette (the free synthesised, key-locked forge, or real glass, felt, wood, marimba, clicks and air generated on Higgsfield and pitched into the film's key), and renders 1 SFX stem in a shared acoustic space. Use once picture timing and the score are fixed, for \"sound effects\", \"SFX\", \"sound design\", \"UI sounds\", \"sonic logo\".",
+      "path": "skills/launch-sound/SKILL.md"
+    },
+    {
+      "name": "launch-mix",
+      "description": "Tool manual under launch-film (mixdown.py for buses, ducking, loudness and the brickwall). Mix and master the audio of a launch film. Music, SFX and voice-over on separate buses, the bed ducked by the voice's real envelope with a presence carve, the music dropped out for the logo, glue compression, a true-peak-safe limiter, -14 LUFS and -1 dBTP, then laid onto the rendered picture. Use after the score, the sound effects and the voice exist, for \"mix\", \"master\", \"loudness\", \"LUFS\", \"ducking\", \"mux the audio\".",
+      "path": "skills/launch-mix/SKILL.md"
+    },
+    {
+      "name": "launch-review",
+      "description": "Tool manual under launch-film (measuring a render and studying a reference film). Review a rendered launch film like a demanding creative director, then drive the v1 to v2 loop. Measures rhythm, static runs, cuts against the beat grid, loudness, true peak and voice pace with a script, then applies an eye checklist for continuity at every cut, legibility, brand, real UI, claims and differentiation. Writes a gap list and a scorecard; nothing ships on numbers alone. Use on every render, and on a reference film to learn from it, for \"review the video\", \"check the film\", \"what is wrong with this cut\", \"study this reference\".",
+      "path": "skills/launch-review/SKILL.md"
+    },
+    {
+      "name": "launch-world",
+      "description": "Tool manual under launch-film (backgrounds, plates, Blender glass and 3D shots, shader layers). Build the world a launch film lives in, in your own brand, with generated background plates (cost-gated), Blender for real 3D glass objects and camera moves rendered as alpha layers, WebGL shader layers for atmosphere, and the layer order, depth of field and grade that keep UI legible over living backgrounds. Use when a storyboard needs backgrounds, 3D or atmosphere, for \"background\", \"plate\", \"3D object\", \"glass\", \"Blender\", \"shader\", \"atmosphere\"; motion of the UI itself is launch-motion.",
+      "path": "skills/launch-world/SKILL.md"
+    },
+    {
+      "name": "launch-motion",
+      "description": "Tool manual under launch-film (the motion language for launch films built in HyperFrames). Ease tokens, camera doctrine, continuity at every cut, type and cursor craft, and brand-neutral signature moves (logo build, world pass, branch and pulse, waterfall fill, identity morph, macro pull-back, rise) that replace HyperFrames' stock look. Says which HyperFrames blueprints and transitions to keep, transform or avoid. Use whenever a launch film's picture is designed or animated, for \"animation\", \"motion design\", \"transitions\", \"camera move\", \"make it feel like Apple\", \"less template\".",
+      "path": "skills/launch-motion/SKILL.md"
+    }
+  ]
+}

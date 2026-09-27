@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch review"
+  short_description: "Measure a render or a reference film, then the eye checklist and gap list"
+  default_prompt: "Use $launch-review to review this render and write the gap list."

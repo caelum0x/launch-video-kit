@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch story"
+  short_description: "Brief, spine, script, beat sheet and storyboard for a launch film"
+  default_prompt: "Use $launch-story to turn this launch brief into an approved script and storyboard."

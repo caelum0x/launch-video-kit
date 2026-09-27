@@ -1,0 +1,74 @@
+{
+ "kits": [
+  {
+   "name": "glass",
+   "model": "seed_audio",
+   "hits": 6,
+   "pitched": true,
+   "prompt": "Six separate single taps on a thin crystal wine glass with a small felt mallet: one clear, delicate bell-like ting per tap, every tap followed by one full second of silence. Close-miked, dry studio recording, no room echo, no music, no voices."
+  },
+  {
+   "name": "felt",
+   "model": "seed_audio",
+   "hits": 6,
+   "prompt": "Six separate soft thumps of a felt-covered mallet on a thick oak table top: short, round, warm and muted, every thump followed by one full second of silence. Close-miked, dry studio recording, no music, no voices."
+  },
+  {
+   "name": "wood",
+   "model": "seed_audio",
+   "hits": 6,
+   "prompt": "Six separate hollow knocks on a small wooden block struck with a wooden stick: short, woody and bright, every knock followed by one full second of silence. Close-miked, dry studio recording, no music, no voices."
+  },
+  {
+   "name": "click",
+   "model": "seed_audio",
+   "hits": 6,
+   "prompt": "Six separate satisfying clicks of a premium aluminium laptop trackpad and a soft mechanical latch closing: short, crisp and precise, every click followed by one full second of silence. Close-miked, dry studio recording, no music, no voices."
+  },
+  {
+   "name": "marimba",
+   "model": "seed_audio",
+   "hits": 6,
+   "pitched": true,
+   "prompt": "Six separate single soft notes on a rosewood marimba played with soft yarn mallets, the same middle note every time: warm, round and short, every note followed by one full second of silence. Dry studio recording, no music, no voices."
+  },
+  {
+   "name": "typing",
+   "model": "seed_audio",
+   "hits": 1,
+   "max_len": 6,
+   "prompt": "Close-miked typing on a quiet premium low-profile laptop keyboard: a short burst of confident fast typing, about fifteen soft keystrokes and one spacebar, ending with a single firm Enter key press. Dry studio recording, no room echo, no voices, no music."
+  },
+  {
+   "name": "sub",
+   "model": "seed_audio",
+   "hits": 3,
+   "max_len": 2,
+   "prompt": "Three separate deep, soft sub-bass impacts: a low round felt-like thud with a short natural tail, no crack, no whoosh, no rise, every impact followed by two full seconds of silence. Clean studio recording, no music, no voices."
+  },
+  {
+   "name": "air",
+   "model": "mirelo_text_to_audio",
+   "duration": 3,
+   "hits": 1,
+   "max_len": 6,
+   "prompt": "One soft natural breath of air moving past, rising gently and fading away over three seconds, clearly audible, airy and calm, no whoosh, no music, no voices."
+  },
+  {
+   "name": "grow",
+   "model": "mirelo_text_to_audio",
+   "duration": 3,
+   "hits": 1,
+   "max_len": 6,
+   "prompt": "Delicate close-miked rustle and soft crackle of a young green plant stem and leaves unfurling and growing, organic and quiet but clearly audible, three seconds, no music, no voices."
+  },
+  {
+   "name": "sting",
+   "model": "seed_audio",
+   "hits": 1,
+   "pitched": true,
+   "max_len": 6,
+   "prompt": "A single warm felt piano note with a soft glassy harmonic ringing above it, played once and left to decay naturally for four seconds, intimate and close-miked, no other notes, no music bed, no voices."
+  }
+ ]
+}

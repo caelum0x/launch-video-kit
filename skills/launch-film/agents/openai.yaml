@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch film"
+  short_description: "Make a launch film in your brand: a hook on the shared body, rendered and mixed"
+  default_prompt: "Use $launch-film to make or change a launch film for my product: read brand/brand.json, build a hook on the body, render, mix and check it."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch voice"
+  short_description: "Voice casting, one take per line, fitted lines and aligned word times"
+  default_prompt: "Use $launch-voice to record the voice-over and time every word."

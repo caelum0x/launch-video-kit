@@ -1,0 +1,32 @@
+# dependencies and local tools
+node_modules/
+.venv/
+models/
+__pycache__/
+*.pyc
+.DS_Store
+
+# everything the film pipeline regenerates
+film/renders/
+film/snapshots/
+film/review/
+film/compositions/
+film/index.html
+film/index-*.html
+film/timing-*.json
+film/mix/
+film/sfx/cues-*.json
+film/sfx/sfx-*.wav
+film/assets/brand/
+film/vo/body/*.wav
+film/vo/body/lines.json
+film/vo/body/takes.json
+film/score/*.wav
+film/score/bed.json
+*.log
+
+# reference films you study are never yours to publish
+**/reference/ref.mp4
+
+# local private-term list for scripts/check-template.py
+scripts/private-terms.txt

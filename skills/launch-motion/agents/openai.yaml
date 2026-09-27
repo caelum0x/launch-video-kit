@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch motion"
+  short_description: "Eases, continuity, camera, type and signature moves for HyperFrames"
+  default_prompt: "Use $launch-motion to design the motion for this film."

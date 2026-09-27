@@ -1,0 +1,116 @@
+{
+  "brand": "../brand",
+  "voice_dir": "vo/body",
+  "gap": 0.3,
+  "lines": {
+    "02": "Acme is your feedback inbox.",
+    "03": "Every request from every channel lands in one inbox.",
+    "04": "Acme tags each one and groups the patterns.",
+    "05": "What matters rises to the top of your roadmap.",
+    "06": "Inbox, tags and roadmap, all in one place.",
+    "07": "Customer feedback, on autopilot."
+  },
+  "music": {
+    "file": "score/bed.wav",
+    "bpm": 120,
+    "drop": 6.0,
+    "gain_db": -3
+  },
+  "sound": {
+    "kit": null,
+    "key": "A"
+  },
+  "beats": [
+    {
+      "type": "name",
+      "line": "02",
+      "tagline": "is your *feedback *inbox."
+    },
+    {
+      "type": "hero",
+      "line": "03",
+      "ground": "dark",
+      "text": "Every *request.",
+      "exit": "dive",
+      "until": "request+0.35"
+    },
+    {
+      "type": "product",
+      "line": "03",
+      "src": "assets/screens/inbox.png",
+      "focus": [
+        0.02,
+        0.1,
+        0.46,
+        0.5
+      ],
+      "push_at": "channel",
+      "chip": {
+        "text": "12 new",
+        "at": "inbox"
+      }
+    },
+    {
+      "type": "product",
+      "line": "04",
+      "src": "assets/screens/board.png",
+      "focus": [
+        0.3,
+        0.12,
+        0.42,
+        0.5
+      ],
+      "push_at": "tags",
+      "cursor": {
+        "at": "groups",
+        "x": 0.5,
+        "y": 0.3
+      },
+      "chip": {
+        "text": "Tagged",
+        "at": "patterns"
+      }
+    },
+    {
+      "type": "hero",
+      "line": "05",
+      "ground": "accent",
+      "text": "What *matters.",
+      "exit": "collapse",
+      "until": "matters+0.3"
+    },
+    {
+      "type": "product",
+      "line": "05",
+      "src": "assets/screens/roadmap.png",
+      "focus": [
+        0.05,
+        0.12,
+        0.6,
+        0.4
+      ],
+      "push_at": "top"
+    },
+    {
+      "type": "blocks",
+      "line": "06",
+      "items": [
+        "Inbox",
+        "Tags",
+        "Roadmap"
+      ],
+      "merge_at": "one",
+      "label": "One *place."
+    },
+    {
+      "type": "switch",
+      "line": "07",
+      "text": "Feedback, on *autopilot.",
+      "flip_at": "on"
+    },
+    {
+      "type": "end",
+      "hold": 3.5
+    }
+  ]
+}

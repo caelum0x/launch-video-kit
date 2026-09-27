@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Acme | Board</title>
+  <link rel="stylesheet" href="app.css">
+  <style>
+    .sub { height: 64px; flex: none; display: flex; align-items: center; gap: 12px; padding: 0 32px; }
+    .sub .sort { margin-left: auto; font-size: 13px; color: var(--muted); font-weight: 600; }
+    .cols { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 8px 32px 32px; min-height: 0; }
+    .col { background: #f3eee6; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+    .col .ch { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; letter-spacing: -0.02em; padding: 4px 4px 6px; }
+    .col .ch i { width: 10px; height: 10px; border-radius: 50%; }
+    .col .ch span { color: var(--faint); font-weight: 700; font-size: 13px; }
+    .col .ch em { margin-left: auto; font-style: normal; font-size: 20px; color: var(--faint); font-weight: 500; }
+    .cd { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: 0 1px 2px rgba(27, 23, 19, 0.05); }
+    .cd.hot { box-shadow: 0 0 0 2px var(--coral), 0 20px 40px -24px rgba(255, 91, 53, 0.6); }
+    .cd b { display: block; font-size: 16.5px; letter-spacing: -0.02em; line-height: 1.3; }
+    .cd .mt { margin-top: 14px; display: flex; align-items: center; gap: 10px; }
+    .cd .votes { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: 14px; }
+    .cd .votes svg { width: 14px; height: 14px; fill: var(--coral); }
+    .cd .rev { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .cd .avs { margin-left: auto; display: flex; }
+    .cd .avs .av { width: 26px; height: 26px; font-size: 10px; border: 2px solid #fff; margin-left: -8px; }
+    .cd .tg { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <aside class="side">
+    <div class="brand"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="#ff5b35"/><path fill="#fff" d="M9 10.5a1.5 1.5 0 0 1 1.5-1.5h13a1.5 1.5 0 0 1 1.5 1.5V18h-4.2a1 1 0 0 0-.9.55l-.9 1.8a1 1 0 0 1-.9.55h-2.2a1 1 0 0 1-.9-.55l-.9-1.8a1 1 0 0 0-.9-.55H9z"/><path fill="#fff" opacity=".6" d="M9 20h3.6l.7 1.4a2 2 0 0 0 1.8 1.1h3.8a2 2 0 0 0 1.8-1.1l.7-1.4H25v2.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 9 22.5z"/></svg><span>Acme</span></div>
+    <div class="ws"><i>ST</i>Studio team<small>Pro</small></div>
+    <div class="nav">
+      <a class=""><svg viewBox="0 0 24 24"><path d="M4 4h16v11h-5l-1.5 2.5h-3L9 15H4zm0 13h3.5l1 1.5h7l1-1.5H20v3H4z"/></svg>Inbox<span class="n">128</span></a>
+      <a class="on"><svg viewBox="0 0 24 24"><path d="M3 4h5v16H3zm6.5 0h5v11h-5zM16 4h5v7h-5z"/></svg>Board</a>
+      <a class=""><svg viewBox="0 0 24 24"><path d="M3 5h11v3H3zm4 5.5h14v3H7zM3 16h9v3H3z"/></svg>Roadmap</a>
+      <a class=""><svg viewBox="0 0 24 24"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8m-7 9a7 7 0 0 1 14 0zm15-9a3 3 0 1 0 0-6v6m1 9h4a5 5 0 0 0-5-5.5 8 8 0 0 1 1 5.5"/></svg>Customers</a>
+      <a class=""><svg viewBox="0 0 24 24"><path d="M4 20V10h3v10zm6.5 0V4h3v16zM17 20v-7h3v7z"/></svg>Insights</a>
+      <a class=""><svg viewBox="0 0 24 24"><path d="m12 2 2.2 2.6 3.4-.4.6 3.4 3 1.6-1.4 3.1 1.4 3.1-3 1.6-.6 3.4-3.4-.4L12 22l-2.2-2.6-3.4.4-.6-3.4-3-1.6 1.4-3.1-1.4-3.1 3-1.6.6-3.4 3.4.4zm0 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/></svg>Settings</a>
+    </div>
+    <div class="sect">Tags</div>
+    <div class="tagl">
+      <a><i style="background:#ff5b35"></i>Export<span>41</span></a>
+      <a><i style="background:#3f6fd8"></i>Integrations<span>33</span></a>
+      <a><i style="background:#1f8a5b"></i>Onboarding<span>27</span></a>
+      <a><i style="background:#7a55d4"></i>Mobile<span>19</span></a>
+      <a><i style="background:#c98a12"></i>Billing<span>8</span></a>
+    </div>
+    <div class="me"><span class="av" style="background:#7a55d4">RK</span>Rosa Kent<small style="margin-left:auto;color:#9a9288;font-weight:500">Product</small></div>
+  </aside>
+  <div class="main">
+    <div class="top"><h1>Board</h1><div class="search"><svg viewBox="0 0 24 24"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3m0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10"/></svg>Search requests, customers, ideas<kbd>/</kbd></div>
+      <div class="tb-r"><span class="b"><svg viewBox="0 0 24 24"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L11 17.4 5.3 11.7l1.4-1.4L10 13.6V3zM4 19h16v2H4z"/></svg>Import</span><span class="b p"><svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg>New request</span></div></div>
+    <div class="sub"><div class="chips"><span class="chip on">All ideas <b>12</b></span><span class="chip">Paying teams</span><span class="chip">Export</span><span class="chip">Integrations</span></div><span class="sort">Sorted by requests</span></div>
+    <div class="cols">
+      <div class="col"><div class="ch"><i style="background:#9a9288"></i>Under review<span>4</span><em>+</em></div>
+        <div class="cd"><b>Filter board by customer plan</b><div class="tg"><span class="tag t-blue">Filters</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>23</span><span class="rev">$96k ARR</span><span class="avs"><span class="av" style="background:#3f6fd8">JS</span><span class="av" style="background:#1f8a5b">MP</span></span></div></div>
+        <div class="cd"><b>Bulk invite from a list</b><div class="tg"><span class="tag t-green">Onboarding</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>19</span><span class="rev">$71k ARR</span><span class="avs"><span class="av" style="background:#7a55d4">LT</span></span></div></div>
+        <div class="cd"><b>Wrap long cards on mobile</b><div class="tg"><span class="tag t-violet">Mobile</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>11</span><span class="rev">$22k ARR</span><span class="avs"><span class="av" style="background:#c98a12">EV</span><span class="av" style="background:#ff5b35">AK</span></span></div></div>
+        <div class="cd"><b>Dark mode for the inbox</b><div class="tg"><span class="tag t-grey">UI</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>9</span><span class="rev">$18k ARR</span><span class="avs"><span class="av" style="background:#1f8a5b">DO</span></span></div></div>
+      </div>
+      <div class="col"><div class="ch"><i style="background:#3f6fd8"></i>Planned<span>3</span><em>+</em></div>
+        <div class="cd hot"><b>Bulk export to CSV</b><div class="tg"><span class="tag t-coral">Export</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>48</span><span class="rev">$212k ARR</span><span class="avs"><span class="av" style="background:#3f6fd8">RN</span><span class="av" style="background:#7a55d4">DO</span><span class="av" style="background:#ff5b35">EV</span></span></div></div>
+        <div class="cd"><b>SSO with SAML</b><div class="tg"><span class="tag t-violet">Security</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>31</span><span class="rev">$188k ARR</span><span class="avs"><span class="av" style="background:#c98a12">AK</span><span class="av" style="background:#1f8a5b">JS</span></span></div></div>
+        <div class="cd"><b>Weekly digest by tag</b><div class="tg"><span class="tag t-blue">Integrations</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>17</span><span class="rev">$64k ARR</span><span class="avs"><span class="av" style="background:#7a55d4">JS</span></span></div></div>
+      </div>
+      <div class="col"><div class="ch"><i style="background:#ff5b35"></i>In progress<span>2</span><em>+</em></div>
+        <div class="cd"><b>Push requests to issue tracker</b><div class="tg"><span class="tag t-blue">Integrations</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>36</span><span class="rev">$143k ARR</span><span class="avs"><span class="av" style="background:#1f8a5b">MP</span><span class="av" style="background:#3f6fd8">LT</span><span class="av" style="background:#c98a12">RN</span></span></div></div>
+        <div class="cd"><b>Merge duplicate requests</b><div class="tg"><span class="tag t-grey">Inbox</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>22</span><span class="rev">$80k ARR</span><span class="avs"><span class="av" style="background:#ff5b35">RN</span><span class="av" style="background:#7a55d4">DO</span></span></div></div>
+      </div>
+      <div class="col"><div class="ch"><i style="background:#1f8a5b"></i>Shipped<span>3</span><em>+</em></div>
+        <div class="cd"><b>Tag requests automatically</b><div class="tg"><span class="tag t-coral">Inbox</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>57</span><span class="rev">$240k ARR</span><span class="avs"><span class="av" style="background:#3f6fd8">DO</span><span class="av" style="background:#ff5b35">EV</span><span class="av" style="background:#1f8a5b">AK</span></span></div></div>
+        <div class="cd"><b>Call notes import</b><div class="tg"><span class="tag t-green">Collect</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>28</span><span class="rev">$97k ARR</span><span class="avs"><span class="av" style="background:#c98a12">RN</span></span></div></div>
+        <div class="cd"><b>Revenue on every request</b><div class="tg"><span class="tag t-amber">Insights</span></div><div class="mt"><span class="votes"><svg viewBox="0 0 24 24"><path d="M12 4 20 14h-5v6H9v-6H4z"/></svg>25</span><span class="rev">$110k ARR</span><span class="avs"><span class="av" style="background:#7a55d4">DO</span><span class="av" style="background:#1f8a5b">EV</span></span></div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

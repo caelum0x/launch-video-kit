@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch score"
+  short_description: "Music fitted to the act map with the drop on the cut"
+  default_prompt: "Use $launch-score to score this launch film on its bar grid."

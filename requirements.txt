@@ -1,0 +1,8 @@
+# Audio pipeline (voice fitting, sound forge, score fitting, mixdown, review).
+# uv venv .venv && uv pip install -r requirements.txt
+numpy>=1.26
+scipy>=1.11
+soundfile>=0.12
+pedalboard>=0.9
+pyloudnorm>=0.1.1
+librosa>=0.10

@@ -1,0 +1,11 @@
+{
+  "name": "launch-video-kit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "brand": "node tools/brand-from-url.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "^25.12.0"
+  }
+}

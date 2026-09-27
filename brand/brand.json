@@ -1,0 +1,121 @@
+{
+  "name": "Acme",
+  "url": "https://acme.example/",
+  "domain": "acme.example",
+  "tagline": "The feedback inbox for product teams",
+  "description": "Acme collects customer feedback from support, sales and calls, tags it automatically and shows your team what to build next.",
+  "mode": "light",
+  "logo": {
+    "file": "logo.png",
+    "mark": "mark.svg",
+    "on_dark": "logo-on-dark.png",
+    "source": "header logo lockup captured at 6x (in header, links home, named logo, names the site, top left, svg, logo sized)"
+  },
+  "colors": {
+    "ground": "#faf7f2",
+    "surface": "#ffffff",
+    "ink": "#1b1713",
+    "ink_secondary": "#6b645c",
+    "accent": "#ff5b35",
+    "accent_ink": "#ffffff",
+    "dark": "#17130f",
+    "dark_ink": "#faf7f2",
+    "highlight": "rgba(255, 91, 53, 0.2)",
+    "success": "#1f8a5b",
+    "danger": "#d2432f",
+    "accent_on_dark": "#ff5b35"
+  },
+  "fonts": {
+    "display": {
+      "family": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": "-0.045em",
+      "files": [
+        "fonts/plus-jakarta-sans-400-800.woff2"
+      ],
+      "faces": [
+        {
+          "file": "fonts/plus-jakarta-sans-400-800.woff2",
+          "weight": "400 800",
+          "style": "normal",
+          "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        }
+      ]
+    },
+    "body": {
+      "family": "Plus Jakarta Sans",
+      "weight": 400,
+      "files": [
+        "fonts/plus-jakarta-sans-400-800.woff2"
+      ],
+      "faces": [
+        {
+          "file": "fonts/plus-jakarta-sans-400-800.woff2",
+          "weight": "400 800",
+          "style": "normal",
+          "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        }
+      ]
+    },
+    "mono": {
+      "family": "ui-monospace",
+      "files": []
+    }
+  },
+  "radius": 18,
+  "copy": {
+    "title": "Acme | The feedback inbox for product teams",
+    "h1": "Every customer request, in one inbox.",
+    "subhead": "Acme collects feedback from support, sales and calls, tags it automatically and shows your team what to build next.",
+    "h2": [
+      "Everything customers say, captured.",
+      "See what matters, sorted by demand.",
+      "A roadmap that writes itself.",
+      "Built for busy product teams.",
+      "Build what customers ask for."
+    ],
+    "ctas": [
+      "Start free",
+      "Book a demo"
+    ],
+    "nav": [
+      "Product",
+      "Inbox",
+      "Board",
+      "Roadmap",
+      "Pricing"
+    ],
+    "features": [
+      "Collect from every channel",
+      "Tagged automatically",
+      "Roadmaps from real demand"
+    ]
+  },
+  "screens": {
+    "hero": "screens/hero.png",
+    "full": "screens/full.png"
+  },
+  "images": [
+    {
+      "file": "images/01.png",
+      "width": 1920,
+      "height": 1200,
+      "alt": "The Acme inbox with tagged customer requests"
+    },
+    {
+      "file": "images/02.png",
+      "width": 1920,
+      "height": 1200,
+      "alt": "Acme roadmap"
+    },
+    {
+      "file": "images/03.png",
+      "width": 1920,
+      "height": 1200,
+      "alt": "Acme board"
+    }
+  ],
+  "preview": "preview.png",
+  "extracted_at": "2026-09-27T10:10:37.052Z",
+  "reviewed": true
+}

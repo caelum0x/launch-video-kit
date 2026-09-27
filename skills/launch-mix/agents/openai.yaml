@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch mix"
+  short_description: "Buses, ducking, logo drop-out and a -14 LUFS master on the picture"
+  default_prompt: "Use $launch-mix to mix and master this launch film."

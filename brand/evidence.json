@@ -1,0 +1,923 @@
+{
+  "url": "http://localhost:5199/",
+  "title": "Acme | The feedback inbox for product teams",
+  "meta": {
+    "description": "Acme collects customer feedback from support, sales and calls, tags it automatically and shows your team what to build next.",
+    "ogTitle": "Acme: every customer request, in one inbox",
+    "ogDescription": "The feedback inbox for product teams. Collect, tag and prioritise every request.",
+    "ogSiteName": "Acme",
+    "ogImage": "",
+    "themeColor": "#ff5b35",
+    "applicationName": ""
+  },
+  "page": {
+    "width": 1920,
+    "height": 4320,
+    "url": "http://localhost:5199/"
+  },
+  "mode": "light",
+  "notes": [],
+  "decisions": {
+    "ground": "most common page colour (64 % of the full page)",
+    "accent": "most saturated brand colour by weighted use (button background, theme-color, hero pixels, page pixels, logo colour)",
+    "accent_ink": "text on the Start free button",
+    "ink": "h1 colour",
+    "ink_secondary": "paragraph colour",
+    "dark": "darkest large area on the page",
+    "surface": "most common card background"
+  },
+  "monochrome": false,
+  "styles": {
+    "html": {
+      "tag": "html",
+      "text": "Acme Product Inbox Board Roadmap Pricing Sign in Start free New Automatic tagging for every request Every customer request, in one inbox. Ac",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 4320
+      },
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(250, 247, 242)",
+      "backgroundImage": null,
+      "textFill": "rgb(0, 0, 0)",
+      "fontFamily": "Times",
+      "fontWeight": "400",
+      "fontSize": 16,
+      "letterSpacing": "normal",
+      "lineHeight": "normal",
+      "borderColor": "rgb(0, 0, 0)",
+      "borderWidth": 0,
+      "radius": 0,
+      "padding": [
+        0,
+        0
+      ],
+      "position": "static"
+    },
+    "body": {
+      "tag": "body",
+      "text": "Acme Product Inbox Board Roadmap Pricing Sign in Start free New Automatic tagging for every request Every customer request, in one inbox. Ac",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 4320
+      },
+      "color": "rgb(27, 23, 19)",
+      "background": "rgb(250, 247, 242)",
+      "backgroundImage": null,
+      "textFill": "rgb(27, 23, 19)",
+      "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "fontWeight": "400",
+      "fontSize": 18,
+      "letterSpacing": "normal",
+      "lineHeight": "27.9px",
+      "borderColor": "rgb(27, 23, 19)",
+      "borderWidth": 0,
+      "radius": 0,
+      "padding": [
+        0,
+        0
+      ],
+      "position": "static"
+    },
+    "h1": {
+      "tag": "h1",
+      "text": "Every customer request, in one inbox.",
+      "rect": {
+        "x": 470,
+        "y": 237,
+        "w": 980,
+        "h": 171
+      },
+      "color": "rgb(27, 23, 19)",
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": null,
+      "textFill": "rgb(27, 23, 19)",
+      "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "fontWeight": "800",
+      "fontSize": 84,
+      "letterSpacing": "-3.78px",
+      "lineHeight": "85.68px",
+      "borderColor": "rgb(27, 23, 19)",
+      "borderWidth": 0,
+      "radius": 0,
+      "padding": [
+        0,
+        0
+      ],
+      "position": "static"
+    },
+    "h2": [
+      {
+        "tag": "h2",
+        "text": "Everything customers say, captured.",
+        "rect": {
+          "x": 360,
+          "y": 1610,
+          "w": 501,
+          "h": 102
+        },
+        "color": "rgb(27, 23, 19)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(27, 23, 19)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "800",
+        "fontSize": 48,
+        "letterSpacing": "-1.92px",
+        "lineHeight": "50.88px",
+        "borderColor": "rgb(27, 23, 19)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "h2",
+        "text": "See what matters, sorted by demand.",
+        "rect": {
+          "x": 1059,
+          "y": 2243,
+          "w": 501,
+          "h": 102
+        },
+        "color": "rgb(27, 23, 19)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(27, 23, 19)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "800",
+        "fontSize": 48,
+        "letterSpacing": "-1.92px",
+        "lineHeight": "50.88px",
+        "borderColor": "rgb(27, 23, 19)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "h2",
+        "text": "A roadmap that writes itself.",
+        "rect": {
+          "x": 360,
+          "y": 2861,
+          "w": 501,
+          "h": 102
+        },
+        "color": "rgb(27, 23, 19)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(27, 23, 19)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "800",
+        "fontSize": 48,
+        "letterSpacing": "-1.92px",
+        "lineHeight": "50.88px",
+        "borderColor": "rgb(27, 23, 19)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      }
+    ],
+    "p": [
+      {
+        "tag": "p",
+        "text": "Acme collects feedback from support, sales and calls, tags it automatically and shows your team what to build next.",
+        "rect": {
+          "x": 620,
+          "y": 430,
+          "w": 680,
+          "h": 65
+        },
+        "color": "rgb(107, 100, 92)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(107, 100, 92)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 21,
+        "letterSpacing": "normal",
+        "lineHeight": "32.55px",
+        "borderColor": "rgb(107, 100, 92)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "p",
+        "text": "Forward emails, connect your chat and drop in call notes. Acme keeps the customer, the company and the exact words together.",
+        "rect": {
+          "x": 360,
+          "y": 1730,
+          "w": 501,
+          "h": 84
+        },
+        "color": "rgb(107, 100, 92)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(107, 100, 92)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 18,
+        "letterSpacing": "normal",
+        "lineHeight": "27.9px",
+        "borderColor": "rgb(107, 100, 92)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "p",
+        "text": "Requests roll up into ideas on a shared board. Votes, revenue and urgency tell you which ones to pick up first.",
+        "rect": {
+          "x": 1059,
+          "y": 2362,
+          "w": 501,
+          "h": 56
+        },
+        "color": "rgb(107, 100, 92)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(107, 100, 92)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 18,
+        "letterSpacing": "normal",
+        "lineHeight": "27.9px",
+        "borderColor": "rgb(107, 100, 92)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "p",
+        "text": "Plan the quarter from real demand. When an idea ships, everyone who asked for it hears about it.",
+        "rect": {
+          "x": 360,
+          "y": 2981,
+          "w": 501,
+          "h": 56
+        },
+        "color": "rgb(107, 100, 92)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(107, 100, 92)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 18,
+        "letterSpacing": "normal",
+        "lineHeight": "27.9px",
+        "borderColor": "rgb(107, 100, 92)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "p",
+        "text": "Email, chat, calls and sales notes land in 1 inbox.",
+        "rect": {
+          "x": 391,
+          "y": 3571,
+          "w": 325,
+          "h": 50
+        },
+        "color": "rgb(107, 100, 92)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(107, 100, 92)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 16,
+        "letterSpacing": "normal",
+        "lineHeight": "24.8px",
+        "borderColor": "rgb(107, 100, 92)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "p",
+        "text": "Every request is tagged by theme, product area and urgency.",
+        "rect": {
+          "x": 798,
+          "y": 3571,
+          "w": 325,
+          "h": 50
+        },
+        "color": "rgb(107, 100, 92)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(107, 100, 92)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 16,
+        "letterSpacing": "normal",
+        "lineHeight": "24.8px",
+        "borderColor": "rgb(107, 100, 92)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "p",
+        "text": "Plan with the numbers behind every idea, not the loudest voice.",
+        "rect": {
+          "x": 1204,
+          "y": 3571,
+          "w": 325,
+          "h": 50
+        },
+        "color": "rgb(107, 100, 92)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(107, 100, 92)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 16,
+        "letterSpacing": "normal",
+        "lineHeight": "24.8px",
+        "borderColor": "rgb(107, 100, 92)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      },
+      {
+        "tag": "p",
+        "text": "Set up Acme in 10 minutes. Free for teams of up to 5.",
+        "rect": {
+          "x": 360,
+          "y": 3990,
+          "w": 1200,
+          "h": 31
+        },
+        "color": "rgb(185, 177, 166)",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "textFill": "rgb(185, 177, 166)",
+        "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "fontWeight": "400",
+        "fontSize": 20,
+        "letterSpacing": "normal",
+        "lineHeight": "31px",
+        "borderColor": "rgb(185, 177, 166)",
+        "borderWidth": 0,
+        "radius": 0,
+        "padding": [
+          0,
+          0
+        ],
+        "position": "static"
+      }
+    ],
+    "header": {
+      "tag": "header",
+      "text": "Acme Product Inbox Board Roadmap Pricing Sign in Start free",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 77
+      },
+      "color": "rgb(27, 23, 19)",
+      "background": "rgba(250, 247, 242, 0.92)",
+      "backgroundImage": null,
+      "textFill": "rgb(27, 23, 19)",
+      "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "fontWeight": "400",
+      "fontSize": 18,
+      "letterSpacing": "normal",
+      "lineHeight": "27.9px",
+      "borderColor": "rgb(27, 23, 19)",
+      "borderWidth": 0,
+      "radius": 0,
+      "padding": [
+        0,
+        0
+      ],
+      "position": "sticky"
+    },
+    "footer": {
+      "tag": "footer",
+      "text": "Acme is a fictional product made for the launch-video-kit example. Privacy Terms Status",
+      "rect": {
+        "x": 0,
+        "y": 4202,
+        "w": 1920,
+        "h": 119
+      },
+      "color": "rgb(143, 135, 124)",
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": null,
+      "textFill": "rgb(143, 135, 124)",
+      "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "fontWeight": "400",
+      "fontSize": 14,
+      "letterSpacing": "normal",
+      "lineHeight": "21.7px",
+      "borderColor": "rgb(44, 38, 31)",
+      "borderWidth": 1,
+      "radius": 0,
+      "padding": [
+        40,
+        0
+      ],
+      "position": "static"
+    },
+    "mono": null
+  },
+  "ctas": [
+    {
+      "tag": "a",
+      "text": "Start free",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(255, 91, 53)",
+      "backgroundImage": null,
+      "textFill": "rgb(255, 255, 255)",
+      "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "fontWeight": "700",
+      "fontSize": 16,
+      "letterSpacing": "-0.16px",
+      "lineHeight": "24.8px",
+      "borderColor": "rgb(255, 255, 255)",
+      "borderWidth": 0,
+      "radius": 14,
+      "padding": [
+        12,
+        22
+      ],
+      "position": "static",
+      "filled": true,
+      "outlined": false,
+      "inHeader": true,
+      "y": 14
+    },
+    {
+      "tag": "a",
+      "text": "Start free",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(255, 91, 53)",
+      "backgroundImage": null,
+      "textFill": "rgb(255, 255, 255)",
+      "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "fontWeight": "700",
+      "fontSize": 16,
+      "letterSpacing": "-0.16px",
+      "lineHeight": "24.8px",
+      "borderColor": "rgb(255, 255, 255)",
+      "borderWidth": 0,
+      "radius": 14,
+      "padding": [
+        12,
+        22
+      ],
+      "position": "static",
+      "filled": true,
+      "outlined": false,
+      "inHeader": false,
+      "y": 531
+    },
+    {
+      "tag": "a",
+      "text": "Book a demo",
+      "color": "rgb(27, 23, 19)",
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": null,
+      "textFill": "rgb(27, 23, 19)",
+      "fontFamily": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "fontWeight": "700",
+      "fontSize": 16,
+      "letterSpacing": "-0.16px",
+      "lineHeight": "24.8px",
+      "borderColor": "rgb(27, 23, 19)",
+      "borderWidth": 1,
+      "radius": 14,
+      "padding": [
+        12,
+        22
+      ],
+      "position": "static",
+      "filled": false,
+      "outlined": true,
+      "inHeader": false,
+      "y": 531
+    }
+  ],
+  "css_color_vars": {
+    "--acme-card": {
+      "raw": "#ffffff",
+      "rgba": "rgba(255, 255, 255, 1.000)"
+    },
+    "--acme-line": {
+      "raw": "#e9e3da",
+      "rgba": "rgba(233, 227, 218, 1.000)"
+    },
+    "--acme-coral-ink": {
+      "raw": "#ffffff",
+      "rgba": "rgba(255, 255, 255, 1.000)"
+    },
+    "--acme-night": {
+      "raw": "#17130f",
+      "rgba": "rgba(23, 19, 15, 1.000)"
+    },
+    "--acme-ink": {
+      "raw": "#1b1713",
+      "rgba": "rgba(27, 23, 19, 1.000)"
+    },
+    "--acme-paper": {
+      "raw": "#faf7f2",
+      "rgba": "rgba(250, 247, 242, 1.000)"
+    },
+    "--acme-success": {
+      "raw": "#1f8a5b",
+      "rgba": "rgba(31, 138, 91, 1.000)"
+    },
+    "--acme-muted": {
+      "raw": "#6b645c",
+      "rgba": "rgba(107, 100, 92, 1.000)"
+    },
+    "--acme-coral": {
+      "raw": "#ff5b35",
+      "rgba": "rgba(255, 91, 53, 1.000)"
+    },
+    "--acme-danger": {
+      "raw": "#d2432f",
+      "rgba": "rgba(210, 67, 47, 1.000)"
+    }
+  },
+  "histogram": {
+    "hero": [
+      {
+        "hex": "#faf7f2",
+        "share": 0.7943
+      },
+      {
+        "hex": "#ffffff",
+        "share": 0.0952
+      },
+      {
+        "hex": "#f4efe7",
+        "share": 0.0279
+      },
+      {
+        "hex": "#1b1713",
+        "share": 0.0173
+      },
+      {
+        "hex": "#f5f2ed",
+        "share": 0.0114
+      },
+      {
+        "hex": "#ff5b35",
+        "share": 0.0062
+      },
+      {
+        "hex": "#eeeae4",
+        "share": 0.0059
+      },
+      {
+        "hex": "#f1eee9",
+        "share": 0.0039
+      },
+      {
+        "hex": "#fbd2c5",
+        "share": 0.0038
+      },
+      {
+        "hex": "#fdebe5",
+        "share": 0.0023
+      },
+      {
+        "hex": "#faf3ed",
+        "share": 0.0017
+      },
+      {
+        "hex": "#eae4db",
+        "share": 0.0015
+      },
+      {
+        "hex": "#6b645c",
+        "share": 0.001
+      },
+      {
+        "hex": "#f4f4f3",
+        "share": 0.0008
+      },
+      {
+        "hex": "#e8edfa",
+        "share": 0.0008
+      },
+      {
+        "hex": "#fbd8cc",
+        "share": 0.0008
+      },
+      {
+        "hex": "#e5e2dc",
+        "share": 0.0008
+      },
+      {
+        "hex": "#eae7e2",
+        "share": 0.0007
+      },
+      {
+        "hex": "#d5d1cc",
+        "share": 0.0005
+      },
+      {
+        "hex": "#ddd9d4",
+        "share": 0.0005
+      },
+      {
+        "hex": "#cdc9c4",
+        "share": 0.0005
+      },
+      {
+        "hex": "#a5a29c",
+        "share": 0.0004
+      },
+      {
+        "hex": "#7a746c",
+        "share": 0.0004
+      },
+      {
+        "hex": "#f7eede",
+        "share": 0.0004
+      }
+    ],
+    "full": [
+      {
+        "hex": "#faf7f2",
+        "share": 0.6409
+      },
+      {
+        "hex": "#17130f",
+        "share": 0.1222
+      },
+      {
+        "hex": "#ffffff",
+        "share": 0.111
+      },
+      {
+        "hex": "#f4efe7",
+        "share": 0.0357
+      },
+      {
+        "hex": "#f5f2ed",
+        "share": 0.0208
+      },
+      {
+        "hex": "#1b1713",
+        "share": 0.0101
+      },
+      {
+        "hex": "#edeae5",
+        "share": 0.0074
+      },
+      {
+        "hex": "#f1eee9",
+        "share": 0.0073
+      },
+      {
+        "hex": "#ff5b35",
+        "share": 0.0034
+      },
+      {
+        "hex": "#e5e2dd",
+        "share": 0.0034
+      },
+      {
+        "hex": "#dedad6",
+        "share": 0.0023
+      },
+      {
+        "hex": "#e9e6e1",
+        "share": 0.0022
+      },
+      {
+        "hex": "#d5d2cd",
+        "share": 0.002
+      },
+      {
+        "hex": "#eae4db",
+        "share": 0.002
+      },
+      {
+        "hex": "#fcfaf7",
+        "share": 0.0018
+      },
+      {
+        "hex": "#d9d6d1",
+        "share": 0.0016
+      },
+      {
+        "hex": "#e1ded9",
+        "share": 0.0014
+      },
+      {
+        "hex": "#feebe5",
+        "share": 0.0013
+      },
+      {
+        "hex": "#cecac5",
+        "share": 0.0011
+      },
+      {
+        "hex": "#d2cfca",
+        "share": 0.001
+      },
+      {
+        "hex": "#fbd2c5",
+        "share": 0.001
+      },
+      {
+        "hex": "#c9c6c1",
+        "share": 0.0008
+      },
+      {
+        "hex": "#6b645d",
+        "share": 0.0007
+      },
+      {
+        "hex": "#f5f4f3",
+        "share": 0.0006
+      }
+    ]
+  },
+  "block_backgrounds": [
+    {
+      "hex": "#faf7f2",
+      "share": 1.0001
+    },
+    {
+      "hex": "#17130f",
+      "share": 0.1269
+    },
+    {
+      "hex": "#ffffff",
+      "share": 0.1097
+    }
+  ],
+  "accent_candidates": [
+    {
+      "hex": "#ff5b35",
+      "weight": 27.75,
+      "why": [
+        "button background",
+        "theme-color",
+        "hero pixels",
+        "page pixels",
+        "logo colour"
+      ]
+    },
+    {
+      "hex": "#fbd2c5",
+      "weight": 0.18,
+      "why": [
+        "hero pixels",
+        "page pixels"
+      ]
+    },
+    {
+      "hex": "#3f6fd8",
+      "weight": 0.03,
+      "why": [
+        "hero pixels"
+      ]
+    }
+  ],
+  "fonts": {
+    "usage": [
+      {
+        "stack": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+        "weight": 32593
+      }
+    ],
+    "loaded": [
+      {
+        "family": "Plus Jakarta Sans",
+        "weight": "400 800",
+        "style": "normal",
+        "unicodeRange": "U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+      }
+    ],
+    "faces_found": 2,
+    "downloaded": [
+      {
+        "family": "Plus Jakarta Sans",
+        "url": "http://localhost:5199/fonts/PlusJakartaSans-latin.woff2",
+        "ok": true,
+        "file": "fonts/plus-jakarta-sans-400-800.woff2"
+      },
+      {
+        "family": "Plus Jakarta Sans",
+        "url": "http://localhost:5199/fonts/PlusJakartaSans-latin.woff2",
+        "ok": true,
+        "file": "fonts/plus-jakarta-sans-400-800.woff2"
+      }
+    ],
+    "display_stack": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+    "body_stack": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+    "mono_stack": ""
+  },
+  "logo": {
+    "candidates": [
+      {
+        "id": "bfu-0",
+        "score": 19,
+        "why": [
+          "in header",
+          "links home",
+          "named logo",
+          "names the site",
+          "top left",
+          "svg",
+          "logo sized"
+        ],
+        "tag": "a",
+        "rect": {
+          "x": 360,
+          "y": 19,
+          "w": 112,
+          "h": 39
+        },
+        "svgs": 1,
+        "imgs": [],
+        "text": "Acme",
+        "backdrop": "rgba(250, 247, 242, 0.92)",
+        "label": "Acme home"
+      }
+    ],
+    "chosen": "bfu-0"
+  },
+  "images_considered": [
+    {
+      "src": "http://localhost:5199/img/inbox.png",
+      "w": 1920,
+      "h": 1200,
+      "alt": "The Acme inbox with tagged customer requests",
+      "shown": 867303
+    },
+    {
+      "src": "http://localhost:5199/img/roadmap.png",
+      "w": 1920,
+      "h": 1200,
+      "alt": "Acme roadmap",
+      "shown": 231543
+    },
+    {
+      "src": "http://localhost:5199/img/board.png",
+      "w": 1920,
+      "h": 1200,
+      "alt": "Acme board",
+      "shown": 231537
+    }
+  ],
+  "icons": [
+    {
+      "rel": "icon",
+      "href": "http://localhost:5199/favicon.svg",
+      "sizes": "",
+      "type": "image/svg+xml"
+    }
+  ]
+}

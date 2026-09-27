@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acme | The feedback inbox for product teams</title>
+  <meta name="description" content="Acme collects customer feedback from support, sales and calls, tags it automatically and shows your team what to build next.">
+  <meta property="og:site_name" content="Acme">
+  <meta property="og:title" content="Acme: every customer request, in one inbox">
+  <meta property="og:description" content="The feedback inbox for product teams. Collect, tag and prioritise every request.">
+  <meta name="theme-color" content="#ff5b35">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    /* Acme is a fictional brand made for the launch-video-kit example. */
+    @font-face { font-family: "Plus Jakarta Sans"; src: url("fonts/PlusJakartaSans-latin.woff2") format("woff2"); font-weight: 400 800; font-style: normal;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "Plus Jakarta Sans"; src: url("fonts/PlusJakartaSans-latin-ext.woff2") format("woff2"); font-weight: 400 800; font-style: normal;
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    :root {
+      --acme-paper: #faf7f2; --acme-card: #ffffff; --acme-ink: #1b1713; --acme-muted: #6b645c; --acme-line: #e9e3da;
+      --acme-coral: #ff5b35; --acme-coral-ink: #ffffff; --acme-night: #17130f; --acme-success: #1f8a5b; --acme-danger: #d2432f;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--acme-paper); }
+    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: var(--acme-ink); background: var(--acme-paper); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: 1200px; margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(250, 247, 242, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--acme-line); }
+    header .wrap { display: flex; align-items: center; height: 76px; gap: 48px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 25px; letter-spacing: -0.04em; }
+    .logo svg { width: 34px; height: 34px; }
+    nav { display: flex; gap: 32px; font-size: 15px; font-weight: 500; color: var(--acme-muted); }
+    nav a:hover { color: var(--acme-ink); }
+    .right { margin-left: auto; display: flex; align-items: center; gap: 24px; font-size: 15px; font-weight: 600; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: var(--radius); font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+    .btn-primary { background: var(--acme-coral); color: var(--acme-coral-ink); box-shadow: 0 8px 20px -10px rgba(255, 91, 53, 0.8); }
+    .btn-ghost { border: 1.5px solid var(--acme-ink); color: var(--acme-ink); }
+    .hero { padding: 96px 0 40px; text-align: center; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--acme-line); font-size: 14px; font-weight: 600; color: var(--acme-muted); }
+    .pill b { color: var(--acme-coral); }
+    h1 { margin: 26px auto 22px; max-width: 980px; font-size: 84px; line-height: 1.02; font-weight: 800; letter-spacing: -0.045em; color: var(--acme-ink); }
+    .hl { background: linear-gradient(transparent 58%, rgba(255, 91, 53, 0.24) 58%); padding: 0 4px; }
+    .sub { max-width: 680px; margin: 0 auto; font-size: 21px; color: var(--acme-muted); }
+    .ctas { margin-top: 36px; display: flex; justify-content: center; gap: 14px; }
+    .shot { margin: 64px auto 0; width: 1200px; border-radius: 22px; background: #fff; border: 1px solid var(--acme-line); padding: 10px; box-shadow: 0 50px 100px -50px rgba(27, 23, 19, 0.45); }
+    .shot img { display: block; width: 100%; height: auto; border-radius: 14px; }
+    section.feature { padding: 110px 0; }
+    section.feature .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 72px; align-items: center; }
+    section.feature.flip .wrap { grid-template-columns: 1.25fr 1fr; }
+    section.feature.flip .copy { order: 2; }
+    .eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--acme-coral); }
+    h2 { margin: 12px 0 18px; font-size: 48px; line-height: 1.06; font-weight: 800; letter-spacing: -0.04em; }
+    .copy p { color: var(--acme-muted); }
+    .copy ul { margin-top: 22px; list-style: none; display: grid; gap: 10px; }
+    .copy li { display: flex; gap: 10px; align-items: center; font-weight: 600; font-size: 16px; }
+    .copy li::before { content: ""; width: 20px; height: 20px; border-radius: 6px; background: rgba(255, 91, 53, 0.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff5b35' d='M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6 11-11-1.4-1.4z'/%3E%3C/svg%3E") center/14px no-repeat; }
+    .frame { border-radius: 18px; background: #fff; border: 1px solid var(--acme-line); padding: 8px; box-shadow: 0 40px 80px -45px rgba(27, 23, 19, 0.4); }
+    .frame img { display: block; width: 100%; height: auto; border-radius: 12px; }
+    .cards { padding: 30px 0 120px; }
+    .cards h2 { text-align: center; }
+    .grid { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--acme-card); border: 1px solid var(--acme-line); border-radius: 18px; padding: 30px; }
+    .card .ic { width: 44px; height: 44px; border-radius: 12px; background: rgba(255, 91, 53, 0.12); display: grid; place-items: center; }
+    .card .ic svg { width: 24px; height: 24px; fill: var(--acme-coral); }
+    h3 { margin: 18px 0 8px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+    .card p { color: var(--acme-muted); font-size: 16px; }
+    .dark { background: var(--acme-night); color: #faf7f2; }
+    .dark .cta { padding: 120px 0 100px; text-align: center; }
+    .dark h2 { font-size: 64px; color: #faf7f2; }
+    .dark h2 .accent { color: var(--acme-coral); }
+    .dark p { color: #b9b1a6; font-size: 20px; }
+    .dark .btn { margin-top: 32px; }
+    footer { border-top: 1px solid #2c261f; padding: 40px 0 56px; font-size: 14px; color: #8f877c; }
+    footer .wrap { display: flex; justify-content: space-between; }
+    footer .links { display: flex; gap: 28px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="Acme home">
+        <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="var(--acme-coral)"/><path fill="#fff" d="M9 10.5a1.5 1.5 0 0 1 1.5-1.5h13a1.5 1.5 0 0 1 1.5 1.5V18h-4.2a1 1 0 0 0-.9.55l-.9 1.8a1 1 0 0 1-.9.55h-2.2a1 1 0 0 1-.9-.55l-.9-1.8a1 1 0 0 0-.9-.55H9z"/><path fill="#fff" opacity=".6" d="M9 20h3.6l.7 1.4a2 2 0 0 0 1.8 1.1h3.8a2 2 0 0 0 1.8-1.1l.7-1.4H25v2.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 9 22.5z"/></svg>
+        <span>Acme</span>
+      </a>
+      <nav>
+        <a href="#product">Product</a><a href="#inbox">Inbox</a><a href="#board">Board</a><a href="#roadmap">Roadmap</a><a href="#pricing">Pricing</a>
+      </nav>
+      <div class="right"><a href="#signin">Sign in</a><a class="btn btn-primary" href="#start">Start free</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="product">
+      <div class="wrap">
+        <span class="pill"><b>New</b> Automatic tagging for every request</span>
+        <h1>Every customer request, in one <span class="hl">inbox.</span></h1>
+        <p class="sub">Acme collects feedback from support, sales and calls, tags it automatically and shows your team what to build next.</p>
+        <div class="ctas"><a class="btn btn-primary" href="#start">Start free</a><a class="btn btn-ghost" href="#demo">Book a demo</a></div>
+        <div class="shot"><img src="img/inbox.png" alt="The Acme inbox with tagged customer requests" width="1920" height="1200"></div>
+      </div>
+    </section>
+
+    <section class="feature" id="inbox">
+      <div class="wrap">
+        <div class="copy">
+          <div class="eyebrow">Collect</div>
+          <h2>Everything customers say, captured.</h2>
+          <p>Forward emails, connect your chat and drop in call notes. Acme keeps the customer, the company and the exact words together.</p>
+          <ul><li>Email, chat and call notes in 1 place</li><li>Customer and company attached</li><li>Duplicates merged for you</li></ul>
+        </div>
+        <div class="frame"><img src="img/inbox.png" alt="Acme inbox" width="1920" height="1200"></div>
+      </div>
+    </section>
+
+    <section class="feature flip" id="board">
+      <div class="wrap">
+        <div class="copy">
+          <div class="eyebrow">Prioritise</div>
+          <h2>See what matters, sorted by demand.</h2>
+          <p>Requests roll up into ideas on a shared board. Votes, revenue and urgency tell you which ones to pick up first.</p>
+          <ul><li>Votes weighted by revenue</li><li>Status your whole team can see</li><li>Notes that link back to the customer</li></ul>
+        </div>
+        <div class="frame"><img src="img/board.png" alt="Acme board" width="1920" height="1200"></div>
+      </div>
+    </section>
+
+    <section class="feature" id="roadmap">
+      <div class="wrap">
+        <div class="copy">
+          <div class="eyebrow">Ship</div>
+          <h2>A roadmap that writes itself.</h2>
+          <p>Plan the quarter from real demand. When an idea ships, everyone who asked for it hears about it.</p>
+          <ul><li>Quarterly plan from the board</li><li>Automatic release notes</li><li>Customers told when it ships</li></ul>
+        </div>
+        <div class="frame"><img src="img/roadmap.png" alt="Acme roadmap" width="1920" height="1200"></div>
+      </div>
+    </section>
+
+    <section class="cards" id="pricing">
+      <div class="wrap">
+        <h2>Built for busy product teams.</h2>
+        <div class="grid">
+          <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v10h-5l-1.5 2h-3L9 15H4z"/></svg></div><h3>Collect from every channel</h3><p>Email, chat, calls and sales notes land in 1 inbox.</p></div>
+          <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12 12 3h8v8l-9 9zm13-6a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></svg></div><h3>Tagged automatically</h3><p>Every request is tagged by theme, product area and urgency.</p></div>
+          <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 18h4V9H4zm6 0h4V5h-4zm6 0h4v-6h-4z"/></svg></div><h3>Roadmaps from real demand</h3><p>Plan with the numbers behind every idea, not the loudest voice.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="dark">
+    <section class="cta">
+      <div class="wrap">
+        <h2>Build what customers <span class="accent">ask for.</span></h2>
+        <p>Set up Acme in 10 minutes. Free for teams of up to 5.</p>
+        <a class="btn btn-primary" href="#start">Start free</a>
+      </div>
+    </section>
+    <footer>
+      <div class="wrap"><span>Acme is a fictional product made for the launch-video-kit example.</span><div class="links"><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#status">Status</a></div></div>
+    </footer>
+  </div>
+</body>
+</html>

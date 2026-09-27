@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch sound"
+  short_description: "A consistent, key-locked sound palette rendered to one SFX stem"
+  default_prompt: "Use $launch-sound to design the sound effects for this film."

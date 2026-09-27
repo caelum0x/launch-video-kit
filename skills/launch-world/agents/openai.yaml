@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch world"
+  short_description: "Backgrounds, plates, Blender glass and shader layers in your brand"
+  default_prompt: "Use $launch-world to build the backgrounds and 3D for this film."

@@ -1,0 +1,12 @@
+{
+  "about": "Free hook: 1 question on the light ground, written word by word. Swap the words for your reader's pain.",
+  "duration": 4.0,
+  "video": null,
+  "ground": "light",
+  "push": false,
+  "voice": null,
+  "text": [
+    {"words": [["What", 0.3], ["did", 0.5], ["your", 0.66], ["customers", 0.84], ["*ask", 1.3], ["*for?", 1.5]], "out": 5.0, "y": 520, "size": 112}
+  ],
+  "sfx": [{"t": 0.3, "sound": "press", "gain_db": -20}, {"t": 1.3, "sound": "glass_tick", "gain_db": -20, "args": {"degree": 2}}]
+}

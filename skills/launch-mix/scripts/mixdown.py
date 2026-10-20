@@ -32,6 +32,7 @@ import sys
 import numpy as np
 import pyloudnorm as pyln
 import soundfile as sf
+from scipy.signal import resample_poly
 from pedalboard import Compressor, Gain, HighpassFilter, HighShelfFilter, Limiter, LowShelfFilter, PeakFilter, Pedalboard
 from pedalboard.io import AudioFile
 
@@ -55,17 +56,24 @@ def load(path: str, dur: float, start: float = 0.0, offset: float = 0.0) -> np.n
 def envelope(x: np.ndarray, attack: float, release: float) -> np.ndarray:
     """Peak follower on the mono sum, in linear units 0..1."""
     mono = np.abs(x).mean(axis=0)
-    a = np.exp(-1 / (attack * SR))
-    r = np.exp(-1 / (release * SR))
-    env = np.zeros_like(mono)
-    acc = 0.0
-    # Vectorised enough for 1-minute films; process in blocks of 64 samples.
+    # Vectorised enough for 1-minute films: one step per block of 64 samples, so the coefficients are
+    # per block (per-sample ones stepped per block made attack and release 64 times too slow), and the
+    # block values are interpolated back to samples so the gain does not step.
     blk = 64
-    for i in range(0, len(mono), blk):
-        v = mono[i : i + blk].max()
+    a = np.exp(-blk / (attack * SR))
+    r = np.exp(-blk / (release * SR))
+    nb = -(-len(mono) // blk)
+    pad = np.zeros(nb * blk, dtype=np.float64)
+    pad[: len(mono)] = mono
+    peaks = pad.reshape(nb, blk).max(axis=1)
+    env = np.empty(nb)
+    acc = 0.0
+    for i in range(nb):
+        v = peaks[i]
         acc = a * acc + (1 - a) * v if v > acc else r * acc + (1 - r) * v
-        env[i : i + blk] = acc
-    return env / (env.max() + 1e-9)
+        env[i] = acc
+    env = np.interp(np.arange(len(mono)), np.arange(nb) * blk + blk / 2, env)
+    return (env / (env.max() + 1e-9)).astype(np.float32)
 
 
 def db(x: float) -> float:
@@ -118,7 +126,8 @@ def main(cfg_path: str) -> None:
         mix += voice
 
     # Pedalboard's Limiter behaves like a maximiser (its output level barely follows the input),
-    # so the ceiling is a look-ahead brickwall written here: per-millisecond block peaks, one
+    # so the ceiling is a look-ahead brickwall written here: per-millisecond block true peaks (4x
+    # oversampled, as ebur128 reads them; sample peaks let a 0.9 dB inter-sample over through), one
     # block of look-ahead, exponential release, then a hard safety clip at the ceiling.
     def limit(x: np.ndarray, ceiling_db: float, release_s: float = 0.08) -> np.ndarray:
         c = db(ceiling_db)
@@ -127,7 +136,7 @@ def main(cfg_path: str) -> None:
         nb = -(-n // B)
         pad = np.zeros((x.shape[0], nb * B), dtype=np.float64)
         pad[:, :n] = x
-        peaks = np.abs(pad).max(axis=0).reshape(nb, B).max(axis=1)
+        peaks = np.abs(resample_poly(pad, 4, 1, axis=1)).max(axis=0).reshape(nb, 4 * B).max(axis=1)
         g_raw = np.minimum(1.0, c / np.maximum(peaks, 1e-9))
         g_la = np.minimum(g_raw, np.append(g_raw[1:], 1.0))
         rel = 1 - np.exp(-B / (release_s * SR))

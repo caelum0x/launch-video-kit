@@ -14,7 +14,17 @@ In a modern launch film the voice leads and the picture illustrates it word by w
 - **Default: Higgsfield on your own account.** `text2speech_v2` (engines `elevenlabs`, `minimax`, `seed_speech`, and others per voice) for casting across about 100 preset voices, about 0.3 credits a line. Seed Audio for a narrator you steer with a prompt and audio references. `scripts/hf_voice.py` wraps the CLI.
 - **Free scratch voice:** `scripts/scratch_voice.py` makes placeholder takes with macOS `say` (or `espeak-ng` on Linux). Build and time the whole film on it, label every review "scratch voice", then swap the real takes in.
 - **Free local clone:** `scripts/clone_local.py` (Chatterbox, MIT) clones your approved narrator from 8 to 10 s of their lines. A stand-in, not a master. Only clone a voice you have the rights to.
+- **ElevenLabs direct (paid plan with a commercial licence):** the cleanest way to add new lines in an approved narrator's voice. Make an Instant Voice Clone from about 60 s of the narrator's own approved lines (only a voice you have the rights to). The free plan has no commercial licence, so never use it for a published film. Keep the API key in your secret manager or environment, never in the repo.
 - Review voices inside a full film, never as loose clips. Keep a list of rejected voices so they are never proposed again.
+
+## New lines in an approved narrator's voice
+
+When the copy changes after the narrator is approved, keep every existing take and add only the new lines. A new line in a different voice is a regression, even when it is clear.
+
+- **Clone settings that held up:** `eleven_v4` at stability about 0.7 and similarity about 0.9, no audio tags, each line generated with its neighbours as `previous_text` and `next_text` so it is read in context.
+- **Pick by speaker similarity, not by ear alone.** Generate several takes, score each against the narrator's own lines with a speaker-embedding model (for example SpeechBrain ECAPA); the narrator's own lines score highest, and the best clone takes come close. Then pace the winners in post to the narrator's measured syllables per second.
+- **Energy means pace, not pitch.** "More energy" is a deeper, faster, gapless read, not a higher, excited one. Tags like `[excited]` raise the pitch without changing the pace.
+- **A hook of short phrases:** read alone, a clone lifts short phrases well above the narrator's pitch and can mishear names. Read the whole hook as 1 request (respell a name it gets wrong), pace it, then cut it into its phrases at the silences and place each on its moment. If it still sits high, lower it with a PSOLA pitch shift that keeps the formants (Praat via `parselmouth`) and re-check the speaker match. Write the aligned word times to a file the film's pages read, so every cut follows the voice.
 
 ## Casting
 

@@ -34,3 +34,8 @@ film/score/bed.json
 
 # local private-term list for scripts/check-template.py
 scripts/private-terms.txt
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

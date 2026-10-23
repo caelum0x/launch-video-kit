@@ -34,7 +34,7 @@ The first version is free and needs no accounts: a placeholder narrator, a synth
    npm run demo -- https://your-site.com
    ```
 
-   Writes `brand/preview.html`: your colours, fonts, logo and headline copy, at a glance. No ffmpeg, no uv, no whisper-cpp, no torch — just Node.
+   Writes `brand/preview.html`: your colours, fonts, logo and headline copy, at a glance. No ffmpeg, no uv, no whisper-cpp, no torch - just Node.
 3. Install the rest of the toolchain to render the actual film ([setup](docs/setup.md), about 10 minutes on a Mac):
 
    ```bash
@@ -105,8 +105,8 @@ No subscription, no seat fee, no credit-card wall to start. Named prices, not "c
 
 | Tool | Entry price | What it buys |
 |---|---|---|
-| **launch-video-kit, free path** | $0 | Brand kit, type-only hook, full body, scratch voice/music/sound, mixed and mastered — no account |
-| **launch-video-kit, paid upgrade** | ~$1.50-3 for a typical first film (30-60 Higgsfield credits, [costs](docs/costs.md)) | Real narrator voice, real music take, a generated sound kit — on your own account, cost stated before every job |
+| **launch-video-kit, free path** | $0 | Brand kit, type-only hook, full body, scratch voice/music/sound, mixed and mastered - no account |
+| **launch-video-kit, paid upgrade** | ~$1.50-3 for a typical first film (30-60 Higgsfield credits, [costs](docs/costs.md)) | Real narrator voice, real music take, a generated sound kit - on your own account, cost stated before every job |
 | Waymark | $350-399/month (Starter, annual or monthly) | 2-4 final downloads/month, broadcast stock footage, ad-buy integration |
 | InVideo AI | Free tier watermarked (10 min/week); paid ~$17-28 to ~$900-1,000/month | Credit system burning 3,000-30,000 credits/project |
 

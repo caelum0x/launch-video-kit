@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-// `npx launch-video-kit demo <url>` — the fast path before the full toolchain install.
+// `npx launch-video-kit demo <url>` - the fast path before the full toolchain install.
 //
 // Runs only tools/brand-from-url.mjs (pure Node + Puppeteer, already a dependency of this
-// package). No ffmpeg, no uv/whisper-cpp, no torch, no Python venv — those are only needed
+// package). No ffmpeg, no uv/whisper-cpp, no torch, no Python venv - those are only needed
 // once you render the actual film. This exists to move the first value moment (seeing your
 // own colours/fonts/logo/copy pulled out of your own site) before the ~10-minute local
 // toolchain install in README.md's "Start here", per STRATEGY-2026-10-23.md move 1.
 //
-//   node bin/demo.mjs demo <url> [--out brand] [--no-fonts] [--max-images 8]
-//   npm run demo -- <url>
+//   node bin/demo.mjs demo <url> [--out brand] [--no-fonts] [--max-images 8] [--open]
+//   npm run demo -- <url> [--open]
 
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -19,11 +19,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 function usage() {
-  console.error('Usage: launch-video-kit demo <url> [--out brand] [--no-fonts] [--max-images 8]');
+  console.error('Usage: launch-video-kit demo <url> [--out brand] [--no-fonts] [--max-images 8] [--open]');
   console.error('');
   console.error('Extracts a brand kit from <url> (colours, fonts, logo, copy, screenshots) and');
   console.error('writes a one-sheet preview. Needs only Node + this package\'s own Puppeteer');
-  console.error('dependency — no ffmpeg, whisper-cpp, uv or torch required for this step.');
+  console.error('dependency - no ffmpeg, whisper-cpp, uv or torch required for this step.');
+  console.error('--open launches the preview in the default browser once it is written.');
 }
 
 const argv = process.argv.slice(2);
@@ -46,23 +47,27 @@ if (rest.length === 0 || rest[0].startsWith('-')) {
   process.exit(1);
 }
 
-const outIdx = rest.indexOf('--out');
-const outDir = outIdx >= 0 && rest[outIdx + 1] ? rest[outIdx + 1] : 'brand';
+const openIdx = rest.indexOf('--open');
+const shouldOpen = openIdx >= 0;
+const toolArgs = shouldOpen ? [...rest.slice(0, openIdx), ...rest.slice(openIdx + 1)] : rest;
+
+const outIdx = toolArgs.indexOf('--out');
+const outDir = outIdx >= 0 && toolArgs[outIdx + 1] ? toolArgs[outIdx + 1] : 'brand';
 
 const brandTool = path.join(ROOT, 'tools', 'brand-from-url.mjs');
 if (!existsSync(brandTool)) {
-  console.error(`launch-video-kit: expected ${brandTool} — is this running inside a clone of the kit?`);
+  console.error(`launch-video-kit: expected ${brandTool} - is this running inside a clone of the kit?`);
   process.exit(1);
 }
 
 const t0 = Date.now();
-const child = spawn(process.execPath, [brandTool, ...rest], {
+const child = spawn(process.execPath, [brandTool, ...toolArgs], {
   stdio: 'inherit',
   cwd: ROOT,
 });
 
 child.on('error', (err) => {
-  console.error(`launch-video-kit: failed to start brand extraction — ${err.message}`);
+  console.error(`launch-video-kit: failed to start brand extraction - ${err.message}`);
   process.exit(1);
 });
 
@@ -77,9 +82,18 @@ child.on('exit', (code, signal) => {
     const previewRel = path.relative(process.cwd(), previewAbs);
     console.log(`\ndemo: brand extracted in ${secs}s -> ${previewRel}`);
     if (existsSync(previewAbs)) {
-      console.log('Open the preview:');
-      console.log(`  open "${previewRel}"       # macOS`);
-      console.log(`  xdg-open "${previewRel}"   # Linux`);
+      if (shouldOpen) {
+        const openCmd = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start' : 'xdg-open';
+        const opener = spawn(openCmd, [previewAbs], { stdio: 'ignore', detached: true, shell: process.platform === 'win32' });
+        opener.on('error', () => {
+          console.log(`Could not auto-open - run manually: ${openCmd} "${previewRel}"`);
+        });
+        opener.unref();
+      } else {
+        console.log('Open the preview:');
+        console.log(`  open "${previewRel}"       # macOS`);
+        console.log(`  xdg-open "${previewRel}"   # Linux`);
+      }
     }
   }
   process.exit(code ?? 1);

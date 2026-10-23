@@ -27,15 +27,22 @@ The first version is free and needs no accounts: a placeholder narrator, a synth
 ## Start here
 
 1. Click **[Use this template](https://github.com/new?template_name=launch-video-kit&template_owner=timscheuerai)** and clone your copy. Keep it private if you add unreleased product screens.
-2. Install the tools ([setup](docs/setup.md), about 10 minutes on a Mac):
+2. See your own brand pulled out before installing anything else:
+
+   ```bash
+   npm install              # this package's only dependency: puppeteer
+   npm run demo -- https://your-site.com
+   ```
+
+   Writes `brand/preview.html`: your colours, fonts, logo and headline copy, at a glance. No ffmpeg, no uv, no whisper-cpp, no torch — just Node.
+3. Install the rest of the toolchain to render the actual film ([setup](docs/setup.md), about 10 minutes on a Mac):
 
    ```bash
    brew install node ffmpeg uv whisper-cpp
-   npm install
    uv venv .venv && uv pip install -r requirements.txt
    ```
 
-3. Open the folder in Claude Code or Codex and paste:
+4. Open the folder in Claude Code or Codex and paste:
 
    ```text
    Read AGENTS.md and README.md. Make a launch video for my product.
@@ -91,6 +98,17 @@ The body is shared by every hook, so testing 5 hooks is 5 small JSON files, and 
 - When photoreal people look fake, go stylised instead of cheaper.
 
 More in [lessons](skills/launch-film/references/lessons.md).
+
+## Cost, compared
+
+No subscription, no seat fee, no credit-card wall to start. Named prices, not "cheaper":
+
+| Tool | Entry price | What it buys |
+|---|---|---|
+| **launch-video-kit, free path** | $0 | Brand kit, type-only hook, full body, scratch voice/music/sound, mixed and mastered — no account |
+| **launch-video-kit, paid upgrade** | ~$1.50-3 for a typical first film (30-60 Higgsfield credits, [costs](docs/costs.md)) | Real narrator voice, real music take, a generated sound kit — on your own account, cost stated before every job |
+| Waymark | $350-399/month (Starter, annual or monthly) | 2-4 final downloads/month, broadcast stock footage, ad-buy integration |
+| InVideo AI | Free tier watermarked (10 min/week); paid ~$17-28 to ~$900-1,000/month | Credit system burning 3,000-30,000 credits/project |
 
 ## What is in the repo
 

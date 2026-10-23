@@ -2,8 +2,12 @@
   "name": "launch-video-kit",
   "private": true,
   "type": "module",
+  "bin": {
+    "launch-video-kit": "bin/demo.mjs"
+  },
   "scripts": {
-    "brand": "node tools/brand-from-url.mjs"
+    "brand": "node tools/brand-from-url.mjs",
+    "demo": "node bin/demo.mjs demo"
   },
   "dependencies": {
     "puppeteer": "^25.12.0"

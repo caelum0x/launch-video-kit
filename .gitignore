@@ -6,6 +6,10 @@ __pycache__/
 *.pyc
 .DS_Store
 
+# the preview Worker's local build cache and secrets (worker/)
+.wrangler/
+.dev.vars
+
 # everything the film pipeline regenerates
 film/renders/
 film/snapshots/

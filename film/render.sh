@@ -28,8 +28,8 @@ case "$FORMAT" in
   *) echo "unknown --format $FORMAT (landscape, vertical, square, all)" >&2; exit 1 ;;
 esac
 
-suf_of()  { case "$1" in landscape) echo "";    portrait) echo "-v";         square) echo "-sq";      esac; }
-name_of() { case "$1" in landscape) echo "";    portrait) echo "-vertical";  square) echo "-square";  esac; }
+suf_of()  { case "$1" in landscape) echo "" ;;    portrait) echo "-v" ;;         square) echo "-sq" ;;      esac; }
+name_of() { case "$1" in landscape) echo "" ;;    portrait) echo "-vertical" ;;  square) echo "-square" ;;  esac; }
 
 mkdir -p renders
 STATUS=0

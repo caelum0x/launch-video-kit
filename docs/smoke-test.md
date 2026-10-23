@@ -17,20 +17,21 @@ npm install
 npm run demo -- https://example.com --out /tmp/smoke-brand
 ```
 
-Expect: exits 0, prints `demo: brand extracted in Ns -> ...`, and `/tmp/smoke-brand/` contains `brand.json`, `evidence.json`, `preview.html`.
+Expect: exits 0, prints `brand: extracted in Ns -> ...`, and `/tmp/smoke-brand/` contains `brand.json`, `evidence.json`, `preview.html`.
 
 ```bash
-node bin/demo.mjs demo https://example.com --out /tmp/smoke-brand-open --open
+node bin/cli.mjs brand https://example.com --out /tmp/smoke-brand-open --open
 ```
 
 Expect: same files written, plus the default browser opens `preview.html`.
 
 ```bash
-node bin/demo.mjs
-node bin/demo.mjs demo
+node bin/cli.mjs
+node bin/cli.mjs brand
+node bin/cli.mjs doctor
 ```
 
-Expect: both exit 1 with usage text on stderr, no files written.
+Expect: the first two exit 1 with usage text on stderr and no files written; `doctor` exits 0 on a fully-provisioned machine and lists every tool `render` needs.
 
 ## 2. Full render path (needs ffmpeg, uv, whisper-cpp - see `docs/setup.md`)
 

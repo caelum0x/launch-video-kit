@@ -31,8 +31,9 @@ os.chdir(HERE)
 ap = argparse.ArgumentParser()
 ap.add_argument("hook", nargs="?", default="type-only")
 ap.add_argument("--brand", help="brand kit folder (default: film.json brand, else ../brand)")
-ap.add_argument("--aspect", choices=("landscape", "portrait"), default="landscape",
-                help="stage shape: landscape 1920x1080 (site/X) or portrait 1080x1920 (TikTok/Reels/Shorts)")
+ap.add_argument("--aspect", choices=("landscape", "portrait", "square"), default="landscape",
+                help="stage shape: landscape 1920x1080 (site/X), portrait 1080x1920 (TikTok/Reels/Shorts) "
+                     "or square 1080x1080 (Instagram feed/LinkedIn)")
 args = ap.parse_args()
 
 FILM = json.load(open("film.json"))
@@ -45,9 +46,12 @@ if not os.path.exists(os.path.join(BRAND_DIR, "brand.json")):
     sys.exit(f"no brand kit at {BRAND_DIR}: run `npm run brand -- <your-url>` from the repo root first")
 BRAND = json.load(open(os.path.join(BRAND_DIR, "brand.json")))
 
-PORTRAIT = args.aspect == "portrait"
-W, H = (1080, 1920) if PORTRAIT else (1920, 1080)
-SUF = "-v" if PORTRAIT else ""
+ASPECT = args.aspect
+PORTRAIT = ASPECT == "portrait"
+SQUARE = ASPECT == "square"
+STACKED = PORTRAIT or SQUARE   # both crop to the 1080-wide stage; only the height differs
+W, H = (1920, 1080) if ASPECT == "landscape" else (1080, 1920) if PORTRAIT else (1080, 1080)
+SUF = {"landscape": "", "portrait": "-v", "square": "-sq"}[ASPECT]
 
 # The ground a beat should sit on depends on the brand, not on taste: `dark` is
 # near-black on a dark brand and near-white on a light one, and `accent` is the
@@ -55,33 +59,37 @@ SUF = "-v" if PORTRAIT else ""
 GROUND = "light" if BRAND.get("mode") == "light" else "accent"
 
 # Every position, type budget and camera constant in this kit is authored against a
-# 1920x1080 stage. A portrait film is not that frame scaled down: a line fitted to
+# 1920x1080 stage. A portrait or square film is not that frame scaled down: a line fitted to
 # 1680px overflows a 1080px stage, and a camera orbiting (960, 540) orbits a point
 # that is no longer the centre. So the numbers are re-derived per stage and handed
 # to the template as T.L, which is the single source of truth the animation reads.
+# Portrait and square share the same 1080px-wide stage, so every width-budgeted
+# constant (hero, line, card, blk*, chip X, cursor X, box/zoom W) is shared between
+# them; only the height-budgeted ones (chip Y, cursor Y, box/zoom H, boxMidY) change,
+# because square has 840px less vertical room than portrait to fit the same beats in.
 LAYOUT = {
     "cx": W // 2,
     "cy": H // 2,
-    "hero": 960 if PORTRAIT else 1680,
-    "line": 960 if PORTRAIT else 1700,
-    "card": 840 if PORTRAIT else 1300,
-    "blk": 200 if PORTRAIT else 250,
-    "blkB": 240 if PORTRAIT else 310,
-    "chipX0": 60 if PORTRAIT else 260,
-    "chipX1": W - 60 if PORTRAIT else 1660,
-    "chipY0": 200 if PORTRAIT else 190,
-    "chipY1": H - 300 if PORTRAIT else 990,
-    "cursorX": 260 if PORTRAIT else 420,
-    "cursorY": 200 if PORTRAIT else 260,
-    "heroMax": 104 if PORTRAIT else 150,
-    "heroBudget": 900 if PORTRAIT else 1560,
-    "blkMax": 84 if PORTRAIT else 120,
-    "blkBudget": 960 if PORTRAIT else 1500,
-    "boxW": 0.92 if PORTRAIT else 0.8,
-    "boxH": 0.46 if PORTRAIT else 0.76,
-    "boxMidY": 0.60 if PORTRAIT else 565 / 1080,
-    "zoomW": 0.94 if PORTRAIT else 0.84,
-    "zoomH": 0.46 if PORTRAIT else 0.8,
+    "hero": 960 if STACKED else 1680,
+    "line": 960 if STACKED else 1700,
+    "card": 840 if STACKED else 1300,
+    "blk": 200 if STACKED else 250,
+    "blkB": 240 if STACKED else 310,
+    "chipX0": 60 if STACKED else 260,
+    "chipX1": W - 60 if STACKED else 1660,
+    "chipY0": 90 if SQUARE else 200 if PORTRAIT else 190,
+    "chipY1": (H - 260) if SQUARE else (H - 300) if PORTRAIT else 990,
+    "cursorX": 260 if STACKED else 420,
+    "cursorY": 110 if SQUARE else 200 if PORTRAIT else 260,
+    "heroMax": 104 if STACKED else 150,
+    "heroBudget": 900 if STACKED else 1560,
+    "blkMax": 84 if STACKED else 120,
+    "blkBudget": 960 if STACKED else 1500,
+    "boxW": 0.92 if STACKED else 0.8,
+    "boxH": 0.50 if SQUARE else 0.46 if PORTRAIT else 0.76,
+    "boxMidY": 0.52 if SQUARE else 0.60 if PORTRAIT else 565 / 1080,
+    "zoomW": 0.94 if STACKED else 0.84,
+    "zoomH": 0.52 if SQUARE else 0.46 if PORTRAIT else 0.8,
 }
 
 # The template's base rules are landscape pixel positions. Portrait re-centres the
@@ -99,7 +107,11 @@ PORTRAIT_CSS = """
         .ntag { top: 906px; font-size: 54px; }
         .hl { padding: 0 40px; }
         .hg-clear .hl { top: 300px; }
-        .brow { left: 0; right: 0; top: 720px; justify-content: center; gap: 10px; }
+        /* left: 540px (not 0/right:0/justify-content:center) - renderBlocks() always applies
+           translate(-50%,-50%) to re-centre the row on its own left/top point; a full-width box
+           there gets shifted left by half the *stage* width instead of half its own, and the
+           blocks render mostly off the left edge. */
+        .brow { left: 540px; top: 720px; gap: 10px; }
         .blk { width: 200px; height: 200px; gap: 14px; }
         .blk img { width: 74px; height: 74px; }
         .blk span { font-size: 32px; }
@@ -115,6 +127,42 @@ PORTRAIT_CSS = """
         .eword { font-size: 128px; }
         .etag { top: 890px; font-size: 48px; }
         .eurl { bottom: 120px; }
+        .captions { bottom: 150px; }
+"""
+
+# Square (1080x1080) shares portrait's 1080px-wide rules for anything measured from the
+# centre or from an edge inward (padding, widths, left offsets); only the vertical
+# placements shrink, because square has 840px less height than portrait to fit the
+# same name-row / tagline / blocks-row / card / end-card stack into.
+SQUARE_CSS = """
+        /* ---- square stage (1080x1080): Instagram feed / LinkedIn / in-feed video ---- */
+        .hookv { width: 1080px; height: 1080px; }
+        .ent, .cam { width: 1080px; height: 1080px; }
+        .endp img { width: 1080px; height: 1080px; }
+        .nrow { top: 300px; height: 160px; }
+        .nmk { height: 130px; }
+        .nrow.only .nmk { height: 158px; }
+        .nword { font-size: 112px; }
+        .ntag { top: 475px; font-size: 46px; }
+        .hl { padding: 0 40px; }
+        .hg-clear .hl { top: 130px; }
+        .brow { left: 540px; top: 330px; gap: 10px; }    /* left: 540px, see the portrait .brow comment above */
+        .blk { width: 180px; height: 180px; gap: 12px; }
+        .blk img { width: 64px; height: 64px; }
+        .blk span { font-size: 28px; }
+        .blab { top: 225px; font-size: 66px; padding: 0 40px; }
+        .card { left: 540px; top: 405px; height: 180px; padding: 0 44px; gap: 70px; border-radius: 46px; }
+        .clab { font-size: 64px; }
+        .sw { width: 170px; height: 100px; border-radius: 50px; }
+        .knob { width: 80px; height: 80px; }
+        .chip { font-size: 28px; }
+        .erow { top: 345px; height: 160px; }
+        .emk { height: 130px; }
+        .erow.only .emk { height: 158px; }
+        .eword { font-size: 112px; }
+        .etag { top: 470px; font-size: 42px; }
+        .eurl { bottom: 90px; }
+        .captions { bottom: 90px; }
 """
 
 
@@ -553,6 +601,23 @@ for L in HOOK.get("text", []):
     EVENTS += [{"t": at_, "ev": "hookword"} for w, at_ in L["words"][:1]]
 
 
+# ------------------------------------------------------------------ captions
+
+# Open captions, one cue per spoken body line (these are single sentences, short enough to
+# read as one caption), timed from the same line starts build.py already placed the picture
+# on. Off by default (film.json "captions": true turns them on) because a hand-art film that
+# is already captioned by its on-screen type doesn't need a second, redundant text layer -
+# but any film posted to a silent-autoplay feed (X, LinkedIn, Facebook) does.
+captions_html = ""
+if FILM.get("captions"):
+    cap_items = []
+    for lid in order:
+        a = START[lid]
+        b = START[lid] + LINES[lid]["dur"] + max(0.0, GAP - 0.05)
+        cap_items.append(f'<div class="cap" data-a="{a:.3f}" data-b="{b:.3f}">{html.escape(TEXT[lid])}</div>')
+    captions_html = f'<div class="captions">{"".join(cap_items)}</div>'
+
+
 # ------------------------------------------------------------------ write
 
 T = {"D": D, "END": END, "PUSH": bool(HOOK.get("push")), "HOOKGROUND": hook_ground, "BEATS": data, "L": LAYOUT,
@@ -561,10 +626,12 @@ tpl = open("templates/body.html").read()
 comp = (tpl.replace("__FONTFACES__", "\n        ".join(FONTFACES))
         .replace("__VARS__", "; ".join(f"{k}: {v}" for k, v in VARS.items()))
         .replace("__HOOKVIDEO__", hook_video).replace("__HOOKGROUND__", hook_ground).replace("__HOOKTEXT__", hook_text)
-        .replace("__BEATS__", "\n        ".join(beats_html)).replace("__T__", json.dumps(T))
+        .replace("__BEATS__", "\n        ".join(beats_html)).replace("__CAPTIONS__", captions_html).replace("__T__", json.dumps(T))
         .replace('data-width="1920" data-height="1080"', f'data-width="{W}" data-height="{H}"'))
 if PORTRAIT:
     comp = comp.replace("</style>", PORTRAIT_CSS + "\n      </style>", 1)
+elif SQUARE:
+    comp = comp.replace("</style>", SQUARE_CSS + "\n      </style>", 1)
 os.makedirs("compositions", exist_ok=True)
 open(f"compositions/film-{HOOK_NAME}{SUF}.html", "w").write(comp)
 INDEX = f'''<!doctype html>
@@ -592,7 +659,7 @@ INDEX = f'''<!doctype html>
 </html>
 '''
 open(f"index-{HOOK_NAME}{SUF}.html", "w").write(INDEX.replace("__COMP__", f"film-{HOOK_NAME}{SUF}.html"))
-if not PORTRAIT:
+if ASPECT == "landscape":
     open("index.html", "w").write(INDEX.replace("__COMP__", f"film-{HOOK_NAME}.html"))
 placement = ([{"line": "hook", "start": HOOK["voice"]["at"], "file": HOOK["voice"]["file"]}] if HOOK.get("voice") else [])
 placement += [{"line": lid, "start": START[lid]} for lid in order]

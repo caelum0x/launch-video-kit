@@ -23,4 +23,6 @@ film/render.sh type-only                                                        
 
 No voice yet? `python3 film/build.py type-only` still builds a silent animatic from the text, and `npx -y hyperframes@0.8.77 snapshot --at 5.5,8,12` (run inside `film/`) shows any second as a still.
 
+Need a vertical cut for TikTok/Reels/Shorts instead of the landscape site/X cut? `python3 film/build.py type-only --aspect portrait` builds a 1080x1920 composition (output gets a `-v` suffix, e.g. `compositions/film-type-only-v.html`); the default is `--aspect landscape` (1920x1080).
+
 Generated files (`compositions/`, `index-*.html`, `timing-*.json`, `renders/`, `mix/`, takes) are ignored by git and rebuilt on every run.

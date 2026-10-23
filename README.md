@@ -136,13 +136,14 @@ Three more scripts under `tools/` cover the rest of a real workflow, each with i
 - `tools/capture-screens.mjs <url> --routes routes.json` drives headless Chrome to each listed route, waits out loading skeletons, and writes cropped `hero.png`/`full.png` screenshots straight into `film/assets/screens/` - the 1 manual step ("bring 3-4 screenshots") this kit cannot otherwise do for you.
 - `tools/batch.mjs` / `film/render-all.sh <manifest.json>` renders a whole portfolio in one pass: for every `{url, screenshots, lines}` entry in a manifest, it runs `brand-from-url.mjs` → `build.py` → `render.sh`, writing `renders/<product>/<hook>.mp4` per product and a `renders/batch-report.json` summary.
 - `tools/import-script.mjs <competitor-export.json>` converts a flat, single-scene script exported from a shipvideo/Waymark/InVideo-style tool into this kit's 6-beat `film.json` grammar, ready to render on the free path immediately. See `skills/launch-import/SKILL.md`.
+- `tools/localize.mjs <lang1,lang2,...> [--hooks name...]` translates `film/film.json` and every `hook.json` into one or more languages (free, no API key - the unofficial Google Translate endpoint, cached by text hash) and writes `film/i18n/<lang>/`, re-anchoring every on-screen word-timing key so the translated film still cuts in the right place. `tools/render-lang.mjs <lang> [hook...] [--format ...]` (or `film/render-lang.sh`) then stages that language over the live `film.json`/`hooks/`, renders through the real pipeline, writes `renders/i18n/<lang>/<hook>*.mp4`, and always restores the English originals.
 
 ## What is in the repo
 
 ```text
 skills/     11 skills: launch-film (start here), launch-brand, launch-import, story, voice, score, sound, mix, review, world, motion
 bin/        the npx launch-video-kit CLI (init, brand/demo, render, doctor)
-tools/      brand-from-url.mjs (brand extractor), capture-screens.mjs, batch.mjs, import-script.mjs
+tools/      brand-from-url.mjs (brand extractor), capture-screens.mjs, batch.mjs, import-script.mjs, localize.mjs, render-lang.mjs
 brand/      your brand kit (ships with the Acme example)
 film/       the template: film.json, hooks/, assets/screens/, templates/body.html, build.py, audio.py, render.sh, render-all.sh
 examples/   the fictional Acme website the example brand was extracted from

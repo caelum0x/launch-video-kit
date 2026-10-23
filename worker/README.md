@@ -1,5 +1,7 @@
 # Hosted brand-preview API
 
+Live at **https://launch-video-kit-preview.subasiarhan3.workers.dev/** (`/api/preview`).
+
 A Cloudflare Worker: `POST /api/preview {url}` opens the reader's site in a real,
 server-side headless Chrome (Cloudflare Browser Rendering) and returns a brand kit
 (colours, fonts, name, tagline) plus a live screenshot, usually in 5-15s and always under
@@ -32,7 +34,7 @@ npm run dev             # wrangler dev --remote (Browser Rendering needs a real 
 `wrangler dev` without `--remote` cannot run Browser Rendering (there is no local emulation of
 the browser binding), so `npm run dev` runs it against your real Cloudflare account.
 
-## Deploy
+## Deploy (your own account)
 
 ```bash
 npm run deploy
@@ -46,5 +48,5 @@ Needs:
    fail with a clear error naming the missing binding until it is enabled.
 2. `wrangler login` (or an API token with Workers Scripts + Browser Rendering write scopes).
 
-Once deployed, `wrangler.toml`'s `name` becomes the `*.workers.dev` URL (or map a custom
-domain in the dashboard).
+`wrangler.toml`'s `name` becomes your own `*.workers.dev` URL (or map a custom domain in the
+dashboard) - deploying from your fork never touches the URL above.

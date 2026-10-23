@@ -12,6 +12,11 @@ The first version is free and needs no accounts: a placeholder narrator, a synth
 
 *The example film for Acme, a fictional brand, extracted from its website by the kit and rendered on the free path.*
 
+**See your own brand extracted with zero install:** paste your URL at
+**[launch-video-kit-preview.subasiarhan3.workers.dev](https://launch-video-kit-preview.subasiarhan3.workers.dev/)**
+(a hosted Cloudflare Worker, `worker/`) and get your colours, fonts, logo and name back in
+under 10s, before you run a single local command.
+
 ## What you get
 
 | Included | What it does for you |
@@ -110,6 +115,8 @@ No subscription, no seat fee, no credit-card wall to start. Named prices, not "c
 | **launch-video-kit, paid upgrade** | ~$1.50-3 for a typical first film (30-60 Higgsfield credits, [costs](docs/costs.md)) | Real narrator voice, real music take, a generated sound kit - on your own account, cost stated before every job |
 | Waymark | $350-399/month (Starter, annual or monthly) | 2-4 final downloads/month, broadcast stock footage, ad-buy integration |
 | InVideo AI | Free tier watermarked (10 min/week); paid ~$17-28 to ~$900-1,000/month | Credit system burning 3,000-30,000 credits/project |
+
+The full, sortable comparison (these two plus shipvideo, Arcade, Tella and lemomo-ai/lemo-opuscar) is live at **[launch-video-kit-compare.subasiarhan3.workers.dev/compare](https://launch-video-kit-compare.subasiarhan3.workers.dev/compare/)** (`site/`).
 
 ## The CLI
 

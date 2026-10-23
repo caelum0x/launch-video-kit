@@ -46,7 +46,7 @@ Starting balance with no voice: music -2 to -4 dB, SFX 0 dB. With a voice: voice
 
 ## Rules
 
-- Do not use pedalboard's `Limiter` as a ceiling: it behaves like a maximiser (the output level barely follows the input; a 33 s test came out at -10.8 LUFS). `mixdown.py` has its own look-ahead brickwall for that reason.
+- Do not use pedalboard's `Limiter` as a ceiling: it behaves like a maximiser (the output level barely follows the input; a 33 s test came out at -10.8 LUFS). `mixdown.py` has its own look-ahead brickwall for that reason, on 4x oversampled true peaks (on sample peaks a 0.9 dB inter-sample over got through, and an AAC master then clipped).
 - Never raise the whole mix to fix a quiet voice. Fix the voice bus or duck deeper.
 - Never limit more than 3 dB on the master; if you must, the balance is wrong.
 - The logo lands in near silence: a drop-out or a fade, never the full bed.

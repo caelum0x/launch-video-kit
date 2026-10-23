@@ -31,6 +31,7 @@ What was approved and what was rejected across several rounds of launch films bu
 | A brisk, clear narrator | Lines with gaps; badly spoken, too slow |
 | Type on the beat of the voice | Key words landing 0.1 to 0.3 s late; viewers call it "off beat" |
 | 1 voice through the film | A second voice for a new line, even a clear one |
+| Energy as a deep, fast, gapless read | Energy as a higher, excited read |
 | A snappy, punchy cut into the brand | A slow transition into the tagline |
 | Short copy that says the result | Weak generic lines ("everything gets tracked"); text cards the animation already says |
 
@@ -43,6 +44,7 @@ What was approved and what was rejected across several rounds of launch films bu
 | A stylised 3D animated character when photoreal looks fake | Photoreal people that look fake |
 | Generated footage improved with better prompts and anchors | Drawn or vector stand-ins for footage; they read cheap |
 | The era and genre of a famous film | The film itself, or its actor |
+| A model or partner launch with the other app recreated as clean UI, its marks left out | Another company's logo or marks without its written approval |
 
 ## Picture craft
 
@@ -51,6 +53,8 @@ What was approved and what was rejected across several rounds of launch films bu
 - A hero word holds at least about 0.6 s; the end holds quiet for about 4 s.
 - Continuity at every cut: the outgoing element is still moving, the incoming one arrives in motion.
 - A film that passed every number still read as basic. Lead with the eye; numbers only point at problems.
+- Text inside a scaled element must raster at its final size. `will-change` on a word inside a scaled product window rendered it at 1x and scaled it up 3.6x: "really blurry". Remove it, or scale the type itself.
+- Show the product at a readable medium distance. A 4.5x push into a busy screen loses the viewer; a demo-style middle (the product floating and tilting as a window over a moving brand ground, short words between panels) kept the energy and stayed readable.
 
 ## Process
 

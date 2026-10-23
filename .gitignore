@@ -12,6 +12,7 @@ __pycache__/
 
 # everything the film pipeline regenerates
 film/renders/
+/renders/
 film/snapshots/
 film/review/
 film/compositions/
